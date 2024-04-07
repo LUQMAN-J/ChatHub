@@ -1,0 +1,102 @@
+﻿<?xml version = "1.0" encoding = "UTF-8" ?>
+<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ChatHub"
+             x:Class="ChatHub.App">
+    <Application.Resources>
+        <ResourceDictionary>
+
+
+            <Color x:Key="PageBackgroundColor">White</Color>
+            <Color x:Key="DarkColor">#2F2F2F</Color>
+            <Color x:Key="LightColor">#979797</Color>
+            <Color x:Key="DarkTextColor">#151515</Color>
+            <Color x:Key="LightTextColor">#F5F5F5</Color>
+            <Color x:Key="LightBorderColor">#A5A5A5</Color>
+            <Color x:Key="AppRedColor">#D03446</Color>
+            <Color x:Key="AppGrayColor">#BFBFBF</Color>
+            <Color x:Key="AppOverlayColor">#88000000</Color>
+
+            <Style TargetType="ImageButton" x:Key="IconButtonStyle">
+                <Setter Property="HeightRequest" Value="40" />
+                <Setter Property="WidthRequest" Value="40" />
+                <Setter Property="Padding" Value="{OnPlatform Android=2, Default=6}" />
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <!--<Setter Property="Margin" Value="12,3" />-->
+                <Setter Property="Aspect" Value="AspectFit" />
+                <!--<Setter Property="CornerRadius" Value="8" />-->
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter Property="Opacity" Value="1" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Disabled">
+                                <VisualState.Setters>
+                                    <Setter Property="Opacity" Value="0.5" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+          
+            <Style TargetType="Button" x:Key="ConerButtonStyle">
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="BorderColor" Value="{StaticResource AppRedColor}"/>
+                <Setter Property="TextColor" Value="{StaticResource AppRedColor}"/>
+                <Setter Property="CornerRadius" Value="5"/>
+                <Setter Property="BorderWidth" Value="1"/>
+
+
+            </Style>
+
+          
+
+          
+
+            <!-- Medium Label Style -->
+            <Style TargetType="Label" x:Key="BaseMediumLightLabelTextStyle">
+                <Setter Property="LineBreakMode" Value="TailTruncation" />
+                <Setter Property="FontAutoScalingEnabled" Value="False" />
+                <Setter Property="FontFamily" Value="MediumFont" />
+                <Setter Property="TextColor" Value="{StaticResource DarkTextColor}" />
+            </Style>
+
+            <Style TargetType="Label" x:Key="BaseMediumDarkLabelTextStyle" BasedOn="{StaticResource BaseMediumLightLabelTextStyle}">
+                <Setter Property="TextColor" Value="{StaticResource DarkTextColor}" />
+            </Style>
+
+            <Style TargetType="Label" x:Key="RegularLightText14" BasedOn="{StaticResource BaseMediumLightLabelTextStyle}">
+                <Setter Property="FontSize" Value="14" />
+            </Style>
+
+            <Style TargetType="Label" x:Key="MediumLightText18" BasedOn="{StaticResource BaseMediumLightLabelTextStyle}">
+                <Setter Property="FontSize" Value="18" />
+            </Style>
+
+         
+            <!-- Custom Entry Frame Style-->
+            <Style x:Key="CustomEntryFrameStyle" TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="CornerRadius" Value="3" />
+                <Setter Property="HasShadow" Value="False" />
+                <Setter Property="HeightRequest" Value="45" />
+                <Setter Property="Padding" Value="2" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+            </Style>
+
+            <Style TargetType="Label" x:Key="PageHeaderTextStyle" BasedOn="{StaticResource BaseMediumLightLabelTextStyle}">
+                <Setter Property="FontSize" Value="22" />
+                <Setter Property="TextColor" Value="{StaticResource DarkTextColor}" />
+            </Style>
+
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
+                <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

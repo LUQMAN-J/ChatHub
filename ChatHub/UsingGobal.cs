@@ -1,0 +1,23 @@
+﻿global using System;
+global using System.Collections.Generic;
+global using System.Linq;
+global using System.Text;
+global using System.Threading.Tasks;
+global using ChatHub.Views;
+global using ChatHub.IServices;
+global using ChatHub.ViewModels.Base;
+global using Microsoft.AspNetCore.SignalR.Client;
+global using ChatHub.ViewControl;
+global using ChatHub.ViewModels;
+global using CommunityToolkit.Maui;
+global using Microsoft.Extensions.Logging;
+global using Microsoft.Maui.LifecycleEvents;
+global using MonkeyCache;
+global using MonkeyCache.FileStore;
+global using SkiaSharp.Views.Maui.Controls.Hosting;
+global using ChatHub.Service;
+global using ChatHub.Views.Base;
+global using CH.Framework.Services;
+global using CommunityToolkit.Mvvm.ComponentModel;
+global using CommunityToolkit.Mvvm.Input;
+
