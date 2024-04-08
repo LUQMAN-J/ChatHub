@@ -2,18 +2,19 @@
 <Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ChatHub.ShellNavigator"
-                xmlns:local="clr-namespace:ChatHub.Views"
-                 Shell.FlyoutBehavior="Disabled"
+             xmlns:local="clr-namespace:ChatHub.Views"
+             Shell.FlyoutBehavior="Disabled"
+             Shell.TabBarTitleColor="{x:StaticResource AppRedColor}"
+             Shell.PresentationMode="Animated"
+             Shell.NavBarHasShadow="True"
+             Shell.TabBarBackgroundColor="Gray"
+             Shell.TabBarForegroundColor="{x:StaticResource AppRedColor}"
              Title="ShellNavigator">
-    <!--<ShellContent
-       Title="Home"
-       ContentTemplate="{DataTemplate local:HomePage}"
-       Route="MainPage" />-->
     <TabBar>
-        <Tab Title="Home">
+        <Tab Title="Home" Icon="homeicon.png">
             <ShellContent ContentTemplate="{DataTemplate local:HomePage}" />
         </Tab>
-        <Tab Title="SideHome">
+        <Tab Title="SideHome" Icon="chaticon.png">
             <ShellContent ContentTemplate="{DataTemplate local:HomePage}" />
         </Tab>
     </TabBar>

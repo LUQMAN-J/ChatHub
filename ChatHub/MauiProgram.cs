@@ -1,7 +1,12 @@
 ﻿
 #if ANDROID
+using ChatHub.Platforms.Android;
 using Microsoft.Maui.Controls.Compatibility.Platform.Android;
+#elif IOS
+using ChatHub.Platforms.iOS;
 #endif
+
+
 
 namespace ChatHub;
 
@@ -18,6 +23,10 @@ public static class MauiProgram
              {
                  RegisterAnriodLifeCycleServices(events);
              })
+             .ConfigureMauiHandlers(handlers =>
+                {
+                    handlers.AddHandler<Shell, ShellHandler>();
+                })
             .ConfigureEssentials(essentials =>
             {
                 essentials.UseVersionTracking();
@@ -47,8 +56,8 @@ public static class MauiProgram
     private static void RegisterAnriodLifeCycleServices(ILifecycleBuilder events)
     {
 #if ANDROID
-                 events.AddAndroid(android => android.OnCreate((activity, bundle) => MakeStatusBarTranslucent(activity)));
-                 static void MakeStatusBarTranslucent(Android.App.Activity activity)  => activity.Window.SetStatusBarColor(Android.Graphics.Color.Black);
+        events.AddAndroid(android => android.OnCreate((activity, bundle) => MakeStatusBarTranslucent(activity)));
+        static void MakeStatusBarTranslucent(Android.App.Activity activity) => activity.Window.SetStatusBarColor(Android.Graphics.Color.Black);
 #endif
     }
     private static void RegisterAppServices(IServiceCollection services)

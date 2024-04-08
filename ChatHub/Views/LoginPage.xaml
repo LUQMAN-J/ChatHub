@@ -7,9 +7,9 @@
              xmlns:viewmodels="clr-namespace:ChatHub.ViewModels"
              x:TypeArguments="viewmodels:LoginPageViewModel"
              x:DataType="viewmodels:LoginPageViewModel"
-            PageTitle="{Binding Title, Mode=OneWay}"
-            PageMode="None"
-            ContentDisplayMode="NavigationBar" >
+             PageTitle="{Binding Title, Mode=OneWay}"
+             PageMode="None"
+             ContentDisplayMode="NoNavigationBar" >
     <baseviews:ViewBase.PageContent>
         <VerticalStackLayout  Padding="0,0" Spacing="25" BackgroundColor="Red">
             <Button Text="nnnn" Command="{Binding ButtonClickCommand}" BackgroundColor="Orange" HorizontalOptions="Center" />

@@ -57,8 +57,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\chaticon.png" />
 	  <None Remove="Resources\Images\close.png" />
+	  <None Remove="Resources\Images\homeicon.png" />
 	  <None Remove="Resources\Images\icnhamburger.png" />
+	  <None Remove="Resources\Images\usericon.png" />
 	  <None Remove="Resources\Raw\leftside.json" />
 	</ItemGroup>
 

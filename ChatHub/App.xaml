@@ -7,15 +7,18 @@
         <ResourceDictionary>
 
 
-            <Color x:Key="PageBackgroundColor">White</Color>
-            <Color x:Key="DarkColor">#2F2F2F</Color>
+            <Color x:Key="PageBackgroundColor">#FAFAFA</Color>
+            <!--<Color x:Key="DarkColor">#2F2F2F</Color>-->
             <Color x:Key="LightColor">#979797</Color>
             <Color x:Key="DarkTextColor">#151515</Color>
-            <Color x:Key="LightTextColor">#F5F5F5</Color>
-            <Color x:Key="LightBorderColor">#A5A5A5</Color>
-            <Color x:Key="AppRedColor">#D03446</Color>
-            <Color x:Key="AppGrayColor">#BFBFBF</Color>
-            <Color x:Key="AppOverlayColor">#88000000</Color>
+            <!--<Color x:Key="LightTextColor">#F5F5F5</Color>-->
+            <!--<Color x:Key="LightBorderColor">#A5A5A5</Color>-->
+            <!--<Color x:Key="AppRedColor">#D03446</Color>-->
+            <Color x:Key="AppRedColor">#f27777</Color>
+            <Color x:Key="UnSelectedColor">#AED9E0</Color>
+            <Color x:Key="SelectedColor">#F7CED7</Color>
+            <!--<Color x:Key="AppGrayColor">#BFBFBF</Color>
+            <Color x:Key="AppOverlayColor">#88000000</Color>-->
 
             <Style TargetType="ImageButton" x:Key="IconButtonStyle">
                 <Setter Property="HeightRequest" Value="40" />
