@@ -7,15 +7,15 @@
              Shell.TabBarTitleColor="{x:StaticResource AppRedColor}"
              Shell.PresentationMode="Animated"
              Shell.NavBarHasShadow="True"
-             Shell.TabBarBackgroundColor="Gray"
+             Shell.TabBarBackgroundColor="#FFF5EE"
              Shell.TabBarForegroundColor="{x:StaticResource AppRedColor}"
              Title="ShellNavigator">
     <TabBar>
         <Tab Title="Home" Icon="homeicon.png">
             <ShellContent ContentTemplate="{DataTemplate local:HomePage}" />
         </Tab>
-        <Tab Title="SideHome" Icon="chaticon.png">
-            <ShellContent ContentTemplate="{DataTemplate local:HomePage}" />
+        <Tab Title="Chat" Icon="chaticon.png">
+            <ShellContent ContentTemplate="{DataTemplate local:ChatPage}" />
         </Tab>
     </TabBar>
 </Shell>

@@ -25,7 +25,9 @@ public static class MauiProgram
              })
              .ConfigureMauiHandlers(handlers =>
                 {
-                    handlers.AddHandler<Shell, ShellHandler>();
+                    #if ANDROID || IOS
+                      handlers.AddHandler<Shell, ShellHandler>();
+                    #endif
                 })
             .ConfigureEssentials(essentials =>
             {
@@ -35,6 +37,10 @@ public static class MauiProgram
             {
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                fonts.AddFont("Comfortaa-Regular.ttf", "RegularFont");
+                fonts.AddFont("Comfortaa-Bold.ttf", "BoldFont");
+                fonts.AddFont("Comfortaa-Medium.ttf", "MediumFont");
+                fonts.AddFont("Comfortaa-SemiBold.ttf", "SemiBoldFont");
             });
 
 #if DEBUG
@@ -43,8 +49,7 @@ public static class MauiProgram
 #if ANDROID
         Microsoft.Maui.Handlers.EntryHandler.Mapper.AppendToMapping("NoUnderline", (h, v) =>
         {
-            h.PlatformView.BackgroundTintList =
-                Android.Content.Res.ColorStateList.ValueOf(Colors.Transparent.ToAndroid());
+            h.PlatformView.BackgroundTintList = Android.Content.Res.ColorStateList.ValueOf(Colors.Transparent.ToAndroid());
         });
 #endif
         RegisterAppServices(builder.Services);
@@ -72,6 +77,7 @@ public static class MauiProgram
         services.AddSingleton<IApiService, ApiService>();
         services.AddSingleton<LoginPageViewModel>();
         services.AddSingleton<HomePageViewModel>();
+        services.AddSingleton<ChatPageViewModel>();
     }
 
 

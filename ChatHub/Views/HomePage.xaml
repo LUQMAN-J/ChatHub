@@ -11,12 +11,8 @@
             PageMode="None"
             ContentDisplayMode="NoNavigationBar" >
     <baseviews:ViewBase.PageContent>
-        <VerticalStackLayout  Padding="0,0" Spacing="25">
-            <Label Text="{Binding Message}" FontSize="18" HorizontalOptions="Center" />
-
-            <Entry Text="{Binding MyMessage}" Placeholder="Type your message" FontSize="18" HorizontalOptions="Center" />
-
-            <Button Text="Send" Command="{Binding ButtonClickCommand}" HorizontalOptions="Center" />
+        <VerticalStackLayout  Padding="50,50" Spacing="25">
+            <Label Text="Wellcome to Home Page" FontFamily="RegularFont" FontSize="18" HorizontalOptions="Center" />
         </VerticalStackLayout>
     </baseviews:ViewBase.PageContent>
 </baseviews:ViewBase>

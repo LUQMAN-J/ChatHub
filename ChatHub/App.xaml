@@ -7,7 +7,7 @@
         <ResourceDictionary>
 
 
-            <Color x:Key="PageBackgroundColor">#FAFAFA</Color>
+            <Color x:Key="PageBackgroundColor">White</Color>
             <!--<Color x:Key="DarkColor">#2F2F2F</Color>-->
             <Color x:Key="LightColor">#979797</Color>
             <Color x:Key="DarkTextColor">#151515</Color>
@@ -20,31 +20,6 @@
             <!--<Color x:Key="AppGrayColor">#BFBFBF</Color>
             <Color x:Key="AppOverlayColor">#88000000</Color>-->
 
-            <Style TargetType="ImageButton" x:Key="IconButtonStyle">
-                <Setter Property="HeightRequest" Value="40" />
-                <Setter Property="WidthRequest" Value="40" />
-                <Setter Property="Padding" Value="{OnPlatform Android=2, Default=6}" />
-                <Setter Property="BackgroundColor" Value="Transparent" />
-                <!--<Setter Property="Margin" Value="12,3" />-->
-                <Setter Property="Aspect" Value="AspectFit" />
-                <!--<Setter Property="CornerRadius" Value="8" />-->
-                <Setter Property="VisualStateManager.VisualStateGroups">
-                    <VisualStateGroupList>
-                        <VisualStateGroup x:Name="CommonStates">
-                            <VisualState x:Name="Normal">
-                                <VisualState.Setters>
-                                    <Setter Property="Opacity" Value="1" />
-                                </VisualState.Setters>
-                            </VisualState>
-                            <VisualState x:Name="Disabled">
-                                <VisualState.Setters>
-                                    <Setter Property="Opacity" Value="0.5" />
-                                </VisualState.Setters>
-                            </VisualState>
-                        </VisualStateGroup>
-                    </VisualStateGroupList>
-                </Setter>
-            </Style>
           
             <Style TargetType="Button" x:Key="ConerButtonStyle">
                 <Setter Property="BackgroundColor" Value="Transparent"/>
@@ -52,8 +27,6 @@
                 <Setter Property="TextColor" Value="{StaticResource AppRedColor}"/>
                 <Setter Property="CornerRadius" Value="5"/>
                 <Setter Property="BorderWidth" Value="1"/>
-
-
             </Style>
 
           
