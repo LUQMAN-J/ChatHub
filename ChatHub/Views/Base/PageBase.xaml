@@ -44,27 +44,14 @@
             IgnoreSafeArea="True">
 
             <!-- Icons for Left Side -->
-            <ImageButton
-                x:Name="HamburgerButton"
-                Source="icnhamburger.png"
-                VerticalOptions="Center"
-                HorizontalOptions="Start"
-                Grid.Column="0" />
-            <!--Clicked="HamburgerButton_Clicked"-->
-
 
             <Animations:LeftArrowView x:Name="NavigateBackButton" Margin="0,1,0,1" Grid.Column="0" Padding="5,0,0,0"  HorizontalOptions="Start"  VerticalOptions="Center"/>
-           
-          
-                
+            <Animations:CrossSignView x:Name="CloseButton" Margin="0,1,0,1" Grid.Column="0" Padding="2,0,0,0"  HorizontalOptions="Start"  VerticalOptions="Center"/>
+            <Animations:BackCrossSignView x:Name="HamburgerButton" Margin="0,1,0,1" Grid.Column="0" Padding="2,0,0,0"  HorizontalOptions="Start"  VerticalOptions="Center"/>
 
-                <ImageButton
-                x:Name="CloseButton"
-                Source="close.png"
-                VerticalOptions="Center"
-                HorizontalOptions="Start"
-                Grid.Column="0"
-                Command="{Binding CloseModalCommand, Mode=OneWay}" />
+
+
+         
 
             <!-- Page Header Label -->
             <Label

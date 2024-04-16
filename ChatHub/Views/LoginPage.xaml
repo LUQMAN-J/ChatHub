@@ -19,7 +19,7 @@
 
                 <StackLayout Padding="0" Margin="20,0" Spacing="10">
 
-                    <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                    <Frame    BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
                         <StackLayout Orientation="Horizontal">
                             <Frame HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
                                 <Image Source="https://www.findool.com/images/avatars/avatar.png" Aspect="AspectFill" Margin="0"/>
@@ -29,7 +29,7 @@
                         </StackLayout>
                     </Frame>
 
-                    <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Margin="0,0,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                    <Frame  BackgroundColor="Transparent" BorderColor="DarkGray" Margin="0,0,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
                         <StackLayout Orientation="Horizontal">
                             <Frame  HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
                                 <Image Source="https://images.all-free-download.com/images/graphicthumb/lock_icon_6813906.jpg" Aspect="AspectFill" Margin="0"/>
@@ -38,7 +38,7 @@
                         </StackLayout>
                     </Frame>
 
-                    <StackLayout  Orientation="Horizontal">
+                    <StackLayout TranslationX="50" x:Name="stbox"  Orientation="Horizontal">
                         <CheckBox IsChecked="{Binding IsRemember}" Color="{StaticResource AppRedColor}" />
                         <Label Text="Remember me"  FontFamily="RegularFont" TextColor="DarkGray" FontSize="Small" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
 
@@ -49,7 +49,7 @@
                         </Label>
                     </StackLayout>
 
-                    <Button Text="SIGN IN"  Style="{StaticResource ConerButtonStyle}" FontFamily="RegularFont" Command="{Binding LoginExccutionCommand}" />
+                    <Button x:Name="signin"   TranslationX="50" Text="SIGN IN"  Style="{StaticResource ConerButtonStyle}" FontFamily="RegularFont" Command="{Binding LoginExccutionCommand}" />
                         <StackLayout>
                             <Grid>
                                 <BoxView BackgroundColor="DarkGray" HeightRequest="1" WidthRequest="150"  HorizontalOptions="Center" VerticalOptions="Center"/>
@@ -58,7 +58,7 @@
                                 </Frame>
                             </Grid>
                         </StackLayout>
-                    <Button Text="SIGN IN" Style="{StaticResource ConerButtonStyle}"  FontFamily="RegularFont" Command="{Binding SignUpExecutionCommand}" />
+                    <Button x:Name="signup"  TranslationX="50" Text="SIGN UP" Style="{StaticResource ConerButtonStyle}"  FontFamily="RegularFont" Command="{Binding SignUpExecutionCommand}" />
                   
 
 

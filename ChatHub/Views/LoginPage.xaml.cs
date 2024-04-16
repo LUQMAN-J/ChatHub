@@ -1,13 +1,15 @@
 
 
+using Microsoft.Maui.Controls;
+
 namespace ChatHub.Views;
 
 public partial class LoginPage : ViewBase<LoginPageViewModel>
 {
-	public LoginPage()
-	{
-		InitializeComponent();
-	}
+    public LoginPage()
+    {
+        InitializeComponent();
+    }
     protected override void OnSizeAllocated(double width, double height)
     {
         base.OnSizeAllocated(width, height);
@@ -16,12 +18,14 @@ public partial class LoginPage : ViewBase<LoginPageViewModel>
     {
         base.OnAppearing();
 
-        //Task.Run(async () =>
-        //{
-        //    await Task.Delay(200);
-        //    await ViewAnimations.FadeAnimY(Scroller);
-        //    await ViewAnimations.FadeAnimY(Stacker);
-        //});
+        Task.Run(async () =>
+        {
+            await ViewAnimations.FadeAnimY(stbox);
+            await ViewAnimations.FadeAnimY(signin);
+            await ViewAnimations.FadeAnimY(signup);
+        });
+
+
     }
 
 }

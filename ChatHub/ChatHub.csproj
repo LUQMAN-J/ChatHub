@@ -64,6 +64,7 @@
 	  <None Remove="Resources\Images\homeicon.png" />
 	  <None Remove="Resources\Images\icnhamburger.png" />
 	  <None Remove="Resources\Images\usericon.png" />
+	  <None Remove="Resources\Raw\crosssign.json" />
 	  <None Remove="Resources\Raw\leftside.json" />
 	</ItemGroup>
 
@@ -94,6 +95,12 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="ViewControls\Common\LoadingIndicator.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="ViewControls\JsonAnimation\BackCrossSignView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="ViewControls\JsonAnimation\CrossSignView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="ViewControls\JsonAnimation\LeftArrowView.xaml">
