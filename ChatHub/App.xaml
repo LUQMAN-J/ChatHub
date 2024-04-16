@@ -25,6 +25,7 @@
                 <Setter Property="BackgroundColor" Value="Transparent"/>
                 <Setter Property="BorderColor" Value="{StaticResource AppRedColor}"/>
                 <Setter Property="TextColor" Value="{StaticResource AppRedColor}"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
                 <Setter Property="CornerRadius" Value="5"/>
                 <Setter Property="BorderWidth" Value="1"/>
             </Style>
@@ -37,7 +38,7 @@
             <Style TargetType="Label" x:Key="BaseMediumLightLabelTextStyle">
                 <Setter Property="LineBreakMode" Value="TailTruncation" />
                 <Setter Property="FontAutoScalingEnabled" Value="False" />
-                <Setter Property="FontFamily" Value="MediumFont" />
+                <Setter Property="FontFamily" Value="RegularFont" />
                 <Setter Property="TextColor" Value="{StaticResource DarkTextColor}" />
             </Style>
 

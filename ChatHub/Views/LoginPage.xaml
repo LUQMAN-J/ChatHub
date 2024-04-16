@@ -9,10 +9,70 @@
              x:DataType="viewmodels:LoginPageViewModel"
              PageTitle="{Binding Title, Mode=OneWay}"
              PageMode="None"
+              BackgroundColor="{StaticResource PageBackgroundColor}"
              ContentDisplayMode="NoNavigationBar" >
-    <baseviews:ViewBase.PageContent>
-        <VerticalStackLayout  Padding="0,0" Spacing="25" BackgroundColor="Red">
-            <Button Text="nnnn" Command="{Binding ButtonClickCommand}" BackgroundColor="Orange" HorizontalOptions="Center" />
-        </VerticalStackLayout>
-    </baseviews:ViewBase.PageContent>
+    <!--<baseviews:ViewBase.PageContent>-->
+    <Grid>
+        <ScrollView>
+            <VerticalStackLayout   VerticalOptions="CenterAndExpand">
+
+
+                <StackLayout Padding="0" Margin="20,0" Spacing="10">
+
+                    <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                        <StackLayout Orientation="Horizontal">
+                            <Frame HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
+                                <Image Source="https://www.findool.com/images/avatars/avatar.png" Aspect="AspectFill" Margin="0"/>
+                            </Frame>
+
+                            <Entry Placeholder="Email" Text="{Binding Email}" FontFamily="RegularFont" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Margin="0,0,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                        <StackLayout Orientation="Horizontal">
+                            <Frame  HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
+                                <Image Source="https://images.all-free-download.com/images/graphicthumb/lock_icon_6813906.jpg" Aspect="AspectFill" Margin="0"/>
+                            </Frame>
+                            <Entry Placeholder="Password" Text="{Binding Password}" IsPassword="True"  FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,0,0"/>
+                        </StackLayout>
+                    </Frame>
+
+                    <StackLayout  Orientation="Horizontal">
+                        <CheckBox IsChecked="{Binding IsRemember}" Color="{StaticResource AppRedColor}" />
+                        <Label Text="Remember me"  FontFamily="RegularFont" TextColor="DarkGray" FontSize="Small" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+
+                        <Label Text="Forgot Password" TextColor="{StaticResource AppRedColor}" FontFamily="RegularFont" FontAttributes="Bold" HorizontalOptions="EndAndExpand" FontSize="Small" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" >
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer   Command="{Binding ForgatPasswordExecutionCommand}"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </StackLayout>
+
+                    <Button Text="SIGN IN"  Style="{StaticResource ConerButtonStyle}" FontFamily="RegularFont" Command="{Binding LoginExccutionCommand}" />
+                        <StackLayout>
+                            <Grid>
+                                <BoxView BackgroundColor="DarkGray" HeightRequest="1" WidthRequest="150"  HorizontalOptions="Center" VerticalOptions="Center"/>
+                                <Frame BackgroundColor="White" HeightRequest="45" WidthRequest="45" CornerRadius="45" HasShadow="False" BorderColor="DarkGray" Margin="0" HorizontalOptions="Center" Padding="0">
+                                    <Label Text="OR" TextColor="DarkGray" FontSize="Small" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                                </Frame>
+                            </Grid>
+                        </StackLayout>
+                    <Button Text="SIGN IN" Style="{StaticResource ConerButtonStyle}"  FontFamily="RegularFont" Command="{Binding SignUpExecutionCommand}" />
+                  
+
+
+                </StackLayout>
+
+
+
+
+                <!--<Button Text="nnnn" Command="{Binding ButtonClickCommand}" BackgroundColor="Orange" HorizontalOptions="Center" />-->
+
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+
+    <!--</baseviews:ViewBase.PageContent>-->
 </baseviews:ViewBase>

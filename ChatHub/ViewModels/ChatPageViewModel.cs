@@ -11,17 +11,13 @@ namespace ChatHub.ViewModels
         private readonly HubConnection _connection;
         public ChatPageViewModel(IApiService appApiService) : base(appApiService)
         {
-            _connection = new HubConnectionBuilder()
-       .WithUrl("https://luqmanchathub.azurewebsites.net/chat").WithAutomaticReconnect()
-       .Build();
+            _connection = new HubConnectionBuilder().WithUrl("https://luqmanchathub.azurewebsites.net/chat").WithAutomaticReconnect().Build();
         }
         [ObservableProperty]
         public string message;
         [ObservableProperty]
         public string myMessage;
 
-
-        //private HubConnection _connection { get; set; }
         public override async Task OnNavigatedTo(object parameters)
         {
 
@@ -40,7 +36,6 @@ namespace ChatHub.ViewModels
         public async Task OnButtonClick()
         {
             await _connection.InvokeCoreAsync("SendMessage", args: new[] { MyMessage });
-
             MyMessage = String.Empty;
         }
     }
