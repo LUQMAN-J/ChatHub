@@ -78,6 +78,7 @@ public static class MauiProgram
         services.AddSingleton<LoginPageViewModel>();
         services.AddSingleton<HomePageViewModel>();
         services.AddSingleton<ChatPageViewModel>();
+        services.AddSingleton<RegisterPageViewModel>();
     }
 
 

@@ -66,6 +66,7 @@
 	  <None Remove="Resources\Images\usericon.png" />
 	  <None Remove="Resources\Raw\crosssign.json" />
 	  <None Remove="Resources\Raw\leftside.json" />
+	  <None Remove="Resources\Raw\Menuside.json" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -115,6 +116,15 @@
 	  <MauiXaml Update="Views\LoginPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\RegisterPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Update="Views\RegisterPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </None>
 	</ItemGroup>
 
 

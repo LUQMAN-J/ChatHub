@@ -28,4 +28,25 @@ public partial class LoginPage : ViewBase<LoginPageViewModel>
 
     }
 
+    private void EventOfVisiblility(object sender, TappedEventArgs e)
+    {
+        ForgetBox.TranslationX = 50;
+        LogInBox.IsVisible = false;
+        ForgetBox.IsVisible = true;
+        Task.Run(async () =>
+        {
+            await ViewAnimations.FadeAnimY(ForgetBox);
+        });
+    }
+
+    private void RevserseVisiblility(object sender, TappedEventArgs e)
+    {
+        LogInBox.TranslationX = 50;
+        ForgetBox.IsVisible = false;
+        LogInBox.IsVisible = true;
+        Task.Run(async () =>
+        {
+            await ViewAnimations.FadeAnimY(LogInBox);
+        });
+    }
 }

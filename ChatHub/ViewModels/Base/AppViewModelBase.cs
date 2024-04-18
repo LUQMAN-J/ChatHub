@@ -33,6 +33,8 @@ public partial class AppViewModelBase : ViewModelBase
         await NavigationService.PopModalAsync();
 
 
-
+    [RelayCommand]
+    private async Task OpenMenuModel() =>
+    await PageService.DisplayAlert("Oh Hoo","This Feature Is Comming Soon ;)","Ok");
 }
 

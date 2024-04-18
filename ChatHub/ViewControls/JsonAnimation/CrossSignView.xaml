@@ -4,7 +4,7 @@
              xmlns:controls="clr-namespace:SkiaSharp.Extended.UI.Controls;assembly=SkiaSharp.Extended.UI"
              x:Class="ChatHub.ViewControls.JsonAnimation.CrossSignView">
     <ContentView.GestureRecognizers>
-        <TapGestureRecognizer Command="{Binding BindingContext.CloseToModelCommand, Source={RelativeSource AncestorType={x:Type ContentPage}}}"  />
+        <TapGestureRecognizer Command="{Binding BindingContext.CloseModalCommand, Source={RelativeSource AncestorType={x:Type ContentPage}}}"  />
     </ContentView.GestureRecognizers>
     <VerticalStackLayout>
         <controls:SKLottieView

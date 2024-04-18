@@ -7,6 +7,7 @@
              xmlns:viewmodels="clr-namespace:ChatHub.ViewModels"
              x:TypeArguments="viewmodels:LoginPageViewModel"
              x:DataType="viewmodels:LoginPageViewModel"
+            xmlns:controls="clr-namespace:SkiaSharp.Extended.UI.Controls;assembly=SkiaSharp.Extended.UI"
              PageTitle="{Binding Title, Mode=OneWay}"
              PageMode="None"
               BackgroundColor="{StaticResource PageBackgroundColor}"
@@ -17,7 +18,7 @@
             <VerticalStackLayout   VerticalOptions="CenterAndExpand">
 
 
-                <StackLayout Padding="0" Margin="20,0" Spacing="10">
+                <StackLayout Padding="0" Margin="20,0" Spacing="10" x:Name="LogInBox">
 
                     <Frame    BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
                         <StackLayout Orientation="Horizontal">
@@ -44,7 +45,7 @@
 
                         <Label Text="Forgot Password" TextColor="{StaticResource AppRedColor}" FontFamily="RegularFont" FontAttributes="Bold" HorizontalOptions="EndAndExpand" FontSize="Small" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" >
                             <Label.GestureRecognizers>
-                                <TapGestureRecognizer   Command="{Binding ForgatPasswordExecutionCommand}"/>
+                                <TapGestureRecognizer   Tapped="EventOfVisiblility"/>
                             </Label.GestureRecognizers>
                         </Label>
                     </StackLayout>
@@ -60,15 +61,28 @@
                         </StackLayout>
                     <Button x:Name="signup"  TranslationX="50" Text="SIGN UP" Style="{StaticResource ConerButtonStyle}"  FontFamily="RegularFont" Command="{Binding SignUpExecutionCommand}" />
                   
-
-
                 </StackLayout>
 
+                <StackLayout Margin="20,0" Spacing="10" x:Name="ForgetBox"  IsVisible="False">
+                    <VerticalStackLayout HorizontalOptions="EndAndExpand">
+                        <controls:SKLottieView RepeatCount="-1" HeightRequest="38" WidthRequest="50"   Source="crosssign.json"  />
+                        <VerticalStackLayout.GestureRecognizers>
+                            <TapGestureRecognizer   Tapped="RevserseVisiblility"/>
+                        </VerticalStackLayout.GestureRecognizers>
+                    </VerticalStackLayout>
 
+                    <Frame    BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                        <StackLayout Orientation="Horizontal">
+                            <Frame HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
+                                <Image Source="https://www.findool.com/images/avatars/avatar.png" Aspect="AspectFill" Margin="0"/>
+                            </Frame>
 
+                            <Entry Placeholder="Email" Text="{Binding ForgetEmail}" FontFamily="RegularFont" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                        </StackLayout>
+                    </Frame>
+                    <Button   Text="FORGET" Style="{StaticResource ConerButtonStyle}"  FontFamily="RegularFont" Command="{Binding ForgatPasswordExecutionCommand}" />
 
-                <!--<Button Text="nnnn" Command="{Binding ButtonClickCommand}" BackgroundColor="Orange" HorizontalOptions="Center" />-->
-
+                </StackLayout>
 
             </VerticalStackLayout>
         </ScrollView>

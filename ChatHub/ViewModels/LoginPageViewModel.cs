@@ -18,7 +18,9 @@ public partial class LoginPageViewModel : AppViewModelBase
     public string password;
     [ObservableProperty]
     public bool isRemember;
-   
+    [ObservableProperty]
+    public string forgetEmail;
+
 
     public LoginPageViewModel(IApiService appApiService) : base(appApiService)
     {
@@ -33,8 +35,8 @@ public partial class LoginPageViewModel : AppViewModelBase
     [RelayCommand]
     public async Task OnSignUpExecution()
     {
-        await PageService.DisplayAlert("Alert", "Comming Soon", "OK");
-        // App.Current.MainPage = new ShellNavigator();
+        //NavigationService = Shell.Current.Navigation;
+       await this.NavigationService.PushAsync(new RegisterPage());
     }
     [RelayCommand]
     public async Task OnForgatPasswordExecution()

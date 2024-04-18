@@ -2,15 +2,19 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:SkiaSharp.Extended.UI.Controls;assembly=SkiaSharp.Extended.UI"
-             x:Class="ChatHub.ViewControls.JsonAnimation.BackCrossSignView">
+             x:Class="ChatHub.ViewControls.JsonAnimation.BackCrossSignView"
+             Padding="0"
+             Margin="0">
     <ContentView.GestureRecognizers>
-        <TapGestureRecognizer Command="{Binding BindingContext.NavigateToBackCommand, Source={RelativeSource AncestorType={x:Type ContentPage}}}"  />
+        <TapGestureRecognizer Command="{Binding BindingContext.OpenMenuModelCommand, Source={RelativeSource AncestorType={x:Type ContentPage}}}"  />
     </ContentView.GestureRecognizers>
-    <VerticalStackLayout>
+    <VerticalStackLayout Padding="0" Margin="0">
         <controls:SKLottieView
+            Padding="0"
+            Margin="0"
           RepeatCount="-1"
           HeightRequest="38"
           WidthRequest="50"
-          Source="crosssign.json"  />
+          Source="Menuside.json"  />
     </VerticalStackLayout>
 </ContentView>
