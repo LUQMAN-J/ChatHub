@@ -5,6 +5,7 @@
 using CH.Framework.MVVM;
 using ChatHub.IServices;
 using CommunityToolkit.Mvvm.Input;
+using Mopups.Services;
 
 namespace ChatHub.ViewModels.Base;
 
@@ -36,5 +37,8 @@ public partial class AppViewModelBase : ViewModelBase
     [RelayCommand]
     private async Task OpenMenuModel() =>
     await PageService.DisplayAlert("Oh Hoo","This Feature Is Comming Soon ;)","Ok");
+
+
+
 }
 

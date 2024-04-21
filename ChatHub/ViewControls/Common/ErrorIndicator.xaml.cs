@@ -1,26 +1,30 @@
-﻿namespace ChatHub.ViewControls.Common;
+﻿using Mopups.Pages;
+using Mopups.Services;
+using SkiaSharp.Extended.UI.Controls;
 
-public partial class ErrorIndicator : VerticalStackLayout
+namespace ChatHub.ViewControls.Common;
+
+public partial class ErrorIndicator : PopupPage
 {
     //Bindable Properties
 
-    public static readonly BindableProperty IsErrorProperty = BindableProperty.Create(
-        "IsError",
-        typeof(bool),
+    public static readonly BindableProperty HeaderTitleProperty = BindableProperty.Create(
+        "HeaderTitle",
+        typeof(string),
         typeof(ErrorIndicator),
-        false,
+        null,
         BindingMode.OneWay,
         null,
-        SetIsError);
+        SetHeaderTitle);
 
-    public bool IsError
+    public string HeaderTitle
     {
-        get => (bool)this.GetValue(IsErrorProperty);
-        set => this.SetValue(IsErrorProperty, value);
+        get => (string)this.GetValue(HeaderTitleProperty);
+        set => this.SetValue(HeaderTitleProperty, value);
     }
 
-    private static void SetIsError(BindableObject bindable, object oldValue, object newValue) =>
-        (bindable as ErrorIndicator).IsVisible = (bool)newValue;
+    private static void SetHeaderTitle(BindableObject bindable, object oldValue, object newValue) =>
+        (bindable as ErrorIndicator).lblheadertitle.Text =$"Uh-Oh! {newValue.ToString()}";
 
 
     public static readonly BindableProperty ErrorTextProperty = BindableProperty.Create(
@@ -44,25 +48,35 @@ public partial class ErrorIndicator : VerticalStackLayout
 
     public static readonly BindableProperty ErrorImageProperty = BindableProperty.Create(
         "ErrorImage",
-        typeof(ImageSource),
+        typeof(string),
         typeof(ErrorIndicator),
         null,
         BindingMode.OneWay,
         null,
         SetErrorImage);
 
-    public ImageSource ErrorImage
+    public string ErrorImage
     {
-        get => (ImageSource)this.GetValue(ErrorImageProperty);
+        get => (string)this.GetValue(ErrorImageProperty);
         set => this.SetValue(ErrorImageProperty, value);
     }
 
-    private static void SetErrorImage(BindableObject bindable, object oldValue, object newValue) =>
-        (bindable as ErrorIndicator).imgError.Source = (ImageSource)newValue;
+    private static void SetErrorImage(BindableObject bindable, object oldValue, object newValue)
+    {
+        (bindable as ErrorIndicator).imgError.Source = (SKLottieImageSource)SKLottieImageSource.FromFile((string)newValue);
+
+    }
+        
 
 
     public ErrorIndicator()
 	{
 		InitializeComponent();
 	}
+
+
+    private async void OnBackGroundClick(object sender, TappedEventArgs e)
+    {
+        await MopupService.Instance.PopAsync(true);
+    }
 }

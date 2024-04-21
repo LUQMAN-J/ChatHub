@@ -3,13 +3,21 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="ChatHub.ViewControls.Common.LoadingIndicator"
+    xmlns:controls="clr-namespace:SkiaSharp.Extended.UI.Controls;assembly=SkiaSharp.Extended.UI"
     IsVisible="False"
     Padding="48,12"
     Spacing="4">
-
+    <controls:SKLottieView
+       Padding="0"
+       Margin="0"
+     RepeatCount="-1"
+     HeightRequest="50"
+     WidthRequest="50"
+     Source="loader.json"  />
     <ActivityIndicator
         x:Name="actIndicator"
         IsRunning="False"
+        IsVisible="False"
         WidthRequest="44"
         HeightRequest="44"
         HorizontalOptions="Center"
@@ -18,7 +26,10 @@
 
     <Label
         x:Name="lblLoadingText"
-        Style="{StaticResource RegularLightText14}"
+        FontFamily="RegularFont"
+        FontSize="14"
+        TextColor="#f27777"
+        FontAttributes="Bold"
         LineBreakMode="WordWrap"
         HorizontalOptions="Center"
         HorizontalTextAlignment="Center" />

@@ -15,6 +15,6 @@
           RepeatCount="-1"
           HeightRequest="38"
           WidthRequest="50"
-          Source="Menuside.json"  />
+          Source="menujson.json"  />
     </VerticalStackLayout>
 </ContentView>

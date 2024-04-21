@@ -18,10 +18,9 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <!-- Error Indicator -->
-        <basecontrols:ErrorIndicator  Grid.Row="2"  VerticalOptions="Center"  HorizontalOptions="Center" />
-            <!-- Grid to contain Page Content -->
+              <!-- Grid to contain Page Content -->
         <Grid
+            InputTransparent="{Binding IsBusy, Mode=OneWay}"
             x:Name="PageContentGrid"
             IgnoreSafeArea="True"/>
 

@@ -3,9 +3,11 @@
 using CH.Framework.Exceptions;
 using ChatHub.IServices;
 using ChatHub.ViewControl;
+using ChatHub.ViewControls.Common;
 using ChatHub.ViewModels.Base;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Mopups.Services;
 
 
 namespace ChatHub.ViewModels;
@@ -24,7 +26,6 @@ public partial class LoginPageViewModel : AppViewModelBase
 
     public LoginPageViewModel(IApiService appApiService) : base(appApiService)
     {
-
     }
 
     [RelayCommand]
@@ -35,8 +36,26 @@ public partial class LoginPageViewModel : AppViewModelBase
     [RelayCommand]
     public async Task OnSignUpExecution()
     {
-        //NavigationService = Shell.Current.Navigation;
-       await this.NavigationService.PushAsync(new RegisterPage());
+        try
+        {
+            SetDataLoadingIndicators();
+            await Task.Delay(5000);
+           // await this.NavigationService.PushAsync(new RegisterPage());
+        }
+        catch (InternetConnectionException)
+        {
+            var exception = AppConstants.FromInternet();
+            await MopupService.Instance.PushAsync(new ErrorIndicator() { HeaderTitle = "Internet Failure.", ErrorText = exception.Msg, ErrorImage = exception.img });
+        }
+        catch (Exception ex)
+        {
+            var exception = AppConstants.FromException(ex.Message);
+            await MopupService.Instance.PushAsync(new ErrorIndicator() { HeaderTitle = "Something went wrong.", ErrorText = exception.Msg, ErrorImage = exception.img });
+        }
+        finally
+        {
+            SetDataLoadingIndicators(false);
+        } 
     }
     [RelayCommand]
     public async Task OnForgatPasswordExecution()

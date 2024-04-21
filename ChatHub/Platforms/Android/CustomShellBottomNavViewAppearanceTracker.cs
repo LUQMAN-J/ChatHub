@@ -9,6 +9,7 @@ using Microsoft.Maui.Platform;
 using Paint = Android.Graphics.Paint;
 using Color = Android.Graphics.Color;
 using Path = Android.Graphics.Path;
+using Android.Content.Res;
 
 namespace ChatHub.Platforms.Android
 {
@@ -41,6 +42,7 @@ namespace ChatHub.Platforms.Android
 
         public void UpdateIndicator(BottomNavigationView bottomNavView)
         {
+
             var menuView = bottomNavView.GetChildAt(0) as BottomNavigationMenuView;
             if (menuView != null)
             {
@@ -63,6 +65,7 @@ namespace ChatHub.Platforms.Android
                     selectedItemView.SetBackground(indicatorDrawable);
                 }
             }
+           ;
         }
 
 
@@ -106,7 +109,7 @@ namespace ChatHub.Platforms.Android
                 paint.SetColorFilter(colorFilter);
             }
 
-            public override int Opacity => (int)Format.Transparent;
+            public override int Opacity => (int)Format.Opaque;
         }
 
 

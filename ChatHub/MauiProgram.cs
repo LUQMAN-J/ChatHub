@@ -1,9 +1,10 @@
-﻿
+﻿using Mopups.Hosting;
 #if ANDROID
 using ChatHub.Platforms.Android;
 using Microsoft.Maui.Controls.Compatibility.Platform.Android;
 #elif IOS
 using ChatHub.Platforms.iOS;
+
 #endif
 
 
@@ -19,6 +20,7 @@ public static class MauiProgram
             .UseMauiApp<App>()
             .UseSkiaSharp()
             .UseMauiCommunityToolkit()
+            .ConfigureMopups()
             .ConfigureLifecycleEvents(events =>
              {
                  RegisterAnriodLifeCycleServices(events);

@@ -9,7 +9,7 @@ public partial class HomePageViewModel : AppViewModelBase
 
     public HomePageViewModel(IApiService appApiService) : base(appApiService)
     {
-      
+        SetDataLoadingIndicators();
     }
 
 

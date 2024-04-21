@@ -1,32 +1,54 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<VerticalStackLayout
+<mopup:PopupPage
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="ChatHub.ViewControls.Common.ErrorIndicator"
-    IsVisible="False"
-    Padding="48,12">
+    xmlns:mopup="clr-namespace:Mopups.Pages;assembly=Mopups"
+    xmlns:controls="clr-namespace:SkiaSharp.Extended.UI.Controls;assembly=SkiaSharp.Extended.UI"
+    xmlns:mopupsanim="clr-namespace:Mopups.Animations;assembly=Mopups"
+    CloseWhenBackgroundIsClicked="False">
+    <mopup:PopupPage.Animation>
+        <mopupsanim:ScaleAnimation
+            DurationIn="700"
+            EasingIn="BounceOut"
+            PositionIn="Bottom"
+            PositionOut="Center"
+            ScaleIn="1"
+            ScaleOut="1" />
+    </mopup:PopupPage.Animation>
+    <Frame WidthRequest="300" HeightRequest="300" Padding="5" Margin="0">
+        <VerticalStackLayout>
+            <VerticalStackLayout HorizontalOptions="EndAndExpand" Padding="0" Margin="0">
+                <controls:SKLottieView RepeatCount="-1" HeightRequest="38" WidthRequest="50"   Source="crosssign.json"  />
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer   Tapped="OnBackGroundClick"/>
+                </VerticalStackLayout.GestureRecognizers>
+            </VerticalStackLayout>
+            <controls:SKLottieView
+         Padding="0"
+         Margin="0"
+         x:Name="imgError"
+         RepeatCount="-1"
+         HeightRequest="50"
+         WidthRequest="50"  />
 
-    <Image
-        x:Name="imgError"
-        Source="{Binding ErrorImage, Mode=OneWay}"
-        HorizontalOptions="Center"
-        WidthRequest="64"
-        HeightRequest="64"
-        Aspect="AspectFit"/>
-
-    <Label
-        Margin="0,12,0,0"
-        Text="Uh-Oh!"
-        Style="{StaticResource MediumLightText18}"
+            <Label
+        x:Name="lblheadertitle"
+        Margin="0,5,0,0"
+        FontAttributes="Bold"
+        TextColor="Red"
         HorizontalOptions="Center"
         HorizontalTextAlignment="Center" />
 
-    <Label
+            <Label
         x:Name="lblErrorText"
-        Style="{StaticResource RegularLightText14}"
+        TextColor="Red"
+        FontAutoScalingEnabled="False"
         LineBreakMode="WordWrap"
         HorizontalOptions="Center"
         HorizontalTextAlignment="Center" />
+        </VerticalStackLayout>
+    </Frame>
 
-</VerticalStackLayout>
+</mopup:PopupPage>
 

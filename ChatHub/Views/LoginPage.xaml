@@ -12,7 +12,7 @@
              PageMode="None"
               BackgroundColor="{StaticResource PageBackgroundColor}"
              ContentDisplayMode="NoNavigationBar" >
-    <!--<baseviews:ViewBase.PageContent>-->
+    <baseviews:ViewBase.PageContent>
     <Grid>
         <ScrollView>
             <VerticalStackLayout   VerticalOptions="CenterAndExpand">
@@ -88,5 +88,5 @@
         </ScrollView>
     </Grid>
 
-    <!--</baseviews:ViewBase.PageContent>-->
+    </baseviews:ViewBase.PageContent>
 </baseviews:ViewBase>
