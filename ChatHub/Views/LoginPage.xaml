@@ -18,7 +18,7 @@
             <VerticalStackLayout   VerticalOptions="CenterAndExpand">
 
 
-                <StackLayout Padding="0" Margin="20,0" Spacing="10" x:Name="LogInBox">
+                <StackLayout Padding="0" Margin="10,0" Spacing="10" x:Name="LogInBox">
 
                     <Frame    BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
                         <StackLayout Orientation="Horizontal">
