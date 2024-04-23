@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ChatHub.ViewControls.Common.EntryEffect">
+    <ContentView.ControlTemplate>
+        <ControlTemplate>
+            <StackLayout>
+                <Label
+                 Text="{TemplateBinding Title}"
+                 TextColor="{TemplateBinding TextColor}" />
+                <Border StrokeShape="RoundRectangle 5"   Stroke="Black" Background="white" StrokeThickness="1" Padding="{OnPlatform Android='10,0,0,0', iOS='0,0,0,0'}"  HorizontalOptions="Fill">
+                    <Entry   Placeholder="{TemplateBinding HintText}" PlaceholderColor="{StaticResource AppGrayColor}" Text="{TemplateBinding Text}"  SemanticProperties.HeadingLevel="Level2">
+                    </Entry>
+                </Border>
+            </StackLayout>
+        </ControlTemplate>
+    </ContentView.ControlTemplate>
+</ContentView>
+<!--this is not here generate this class-->
+<!--Style="{StaticResource LabelHintStyle}"-->
