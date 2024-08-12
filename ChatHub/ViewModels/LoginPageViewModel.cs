@@ -31,7 +31,7 @@ public partial class LoginPageViewModel : AppViewModelBase
     [RelayCommand]
     public async Task OnLoginExccution()
     {
-        App.Current.MainPage = new ShellNavigator();
+       // App.Current.MainPage = new ShellNavigator();
     }
     [RelayCommand]
     public async Task OnSignUpExecution()

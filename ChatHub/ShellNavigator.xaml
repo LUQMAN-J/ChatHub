@@ -10,6 +10,9 @@
              Shell.TabBarBackgroundColor="#FFF5EE"
              Shell.TabBarForegroundColor="{x:StaticResource AppRedColor}"
              Title="ShellNavigator">
+
+    <ShellContent Title="BaseMap" Route="BaseMapRoute"  ContentTemplate="{DataTemplate local:BaseMapPage}" />
+
     <TabBar>
         <Tab Title="Home" Icon="homeicon.png">
             <ShellContent ContentTemplate="{DataTemplate local:HomePage}" />

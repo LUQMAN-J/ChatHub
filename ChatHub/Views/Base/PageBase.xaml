@@ -7,6 +7,7 @@
     xmlns:basecontrols="clr-namespace:ChatHub.ViewControls.Common"
     xmlns:Animations="clr-namespace:ChatHub.ViewControls.JsonAnimation"
     x:Class="ChatHub.Views.Base.PageBase"
+    Shell.NavBarIsVisible="False"
     BackgroundColor="{StaticResource PageBackgroundColor}">
 
     <Grid
@@ -19,10 +20,7 @@
         </Grid.RowDefinitions>
 
               <!-- Grid to contain Page Content -->
-        <Grid
-            InputTransparent="{Binding IsBusy, Mode=OneWay}"
-            x:Name="PageContentGrid"
-            IgnoreSafeArea="True"/>
+        <Grid  x:Name="PageContentGrid"  IgnoreSafeArea="True"/>
 
         <!-- Busy Indicator -->
         <basecontrols:LoadingIndicator
