@@ -12,6 +12,7 @@ using ChatHub.Models;
 using Esri.ArcGISRuntime.Symbology;
 using CommunityToolkit.Maui.Core.Extensions;
 using ChatHub.StoreSheets;
+using CH.Framework.Extensions;
 
 namespace ChatHub.ViewModels
 {
@@ -21,16 +22,18 @@ namespace ChatHub.ViewModels
         private GraphicsOverlayCollection baseGrapchicsOverlays;
 
         [ObservableProperty]
-        private Map baseMap;
+        public Map baseMap;
         public Command<string> TextChangedCommand { get; }
         [ObservableProperty]
-        private ObservableCollection<Suggestions> _filteredList;
+        public ObservableCollection<Suggestions> _filteredList;
+        [ObservableProperty]
+        public bool isFilter = false;
 
         [ObservableProperty]
-        private Suggestions _selectedItem;
+        public Suggestions _selectedItem;
 
         [ObservableProperty]
-        private ObservableCollection<Stores> _storeList;
+        public ObservableCollection<Stores> _storeList;
 
 
         public BaseMapViewModel(IApiService appApiService) : base(appApiService)
@@ -44,47 +47,51 @@ namespace ChatHub.ViewModels
 
         private async void FilterList(string filter)
         {
-            //SelectedItem = null;
-            //FilteredList=   new ObservableCollection<Suggestions>();
-            //if (filter.Length >= 4)
-            //{
-            //    var Suggestions = await _appApiService.getSuggestions(filter);
-            //    FilteredList.AddRange(Suggestions);
-            //}
-            var stores = await _appApiService.getStores();
-            StoreList = stores.ToObservableCollection();
-            GraphicsOverlay GraphicsOverlayObject = new();
-            GraphicsOverlayCollection overlays = new() { GraphicsOverlayObject };
-            foreach (var store in stores)
+            SelectedItem = null;
+            //FilteredList = new ObservableCollection<Suggestions>();
+            if (filter.Length >= 4)
             {
-                BaseMap.InitialViewpoint = new Viewpoint(store.Longitude, store.Latitude, 43299);
-                BaseGrapchicsOverlays = new GraphicsOverlayCollection();
-                BaseGrapchicsOverlays = overlays;
-                var StoresPoint = new MapPoint(store.Longitude, store.Latitude, SpatialReferences.Wgs84);
-                TextSymbol NamePoint = new TextSymbol()
-                {
-                    Text = store.Name,
-                    Color = System.Drawing.Color.Orange,
-                    HorizontalAlignment = Esri.ArcGISRuntime.Symbology.HorizontalAlignment.Justify,
-                    VerticalAlignment = Esri.ArcGISRuntime.Symbology.VerticalAlignment.Top,
-                    BackgroundColor = System.Drawing.Color.Transparent,
-                    FontWeight = Esri.ArcGISRuntime.Symbology.FontWeight.Bold,
-                    Size = 12
-                };
-                Uri symbolUri = new Uri("https://cdn-icons-png.flaticon.com/512/2838/2838709.png");
-                var pointName = new Graphic(StoresPoint, NamePoint);
-                PictureMarkerSymbol campsiteSymbol = new PictureMarkerSymbol(symbolUri)
-                {
-                    Width = 20,
-                    Height = 20
-                };
-                Graphic campsiteGraphic = new Graphic(StoresPoint, campsiteSymbol);
-                GraphicsOverlayObject.Graphics.Add(campsiteGraphic);
-                GraphicsOverlayObject.Graphics.Add(pointName);
+                var Suggestions = await _appApiService.getSuggestions(filter);
+                FilteredList.Clear();
+                FilteredList = Suggestions.ToObservableCollection();
+                IsFilter = true;
             }
-            var sheet = new StorebottomSheet();
-            sheet.BindingContext = this;
-            await sheet.ShowAsync();
+            else
+                IsFilter = false;
+            //var stores = await _appApiService.getStores();
+            //StoreList = stores.ToObservableCollection();
+            //GraphicsOverlay GraphicsOverlayObject = new();
+            //GraphicsOverlayCollection overlays = new() { GraphicsOverlayObject };
+            //foreach (var store in stores)
+            //{
+            //    BaseMap.InitialViewpoint = new Viewpoint(store.Longitude, store.Latitude, 43299);
+            //    BaseGrapchicsOverlays = new GraphicsOverlayCollection();
+            //    BaseGrapchicsOverlays = overlays;
+            //    var StoresPoint = new MapPoint(store.Longitude, store.Latitude, SpatialReferences.Wgs84);
+            //    TextSymbol NamePoint = new TextSymbol()
+            //    {
+            //        Text = store.Name,
+            //        Color = System.Drawing.Color.Orange,
+            //        HorizontalAlignment = Esri.ArcGISRuntime.Symbology.HorizontalAlignment.Justify,
+            //        VerticalAlignment = Esri.ArcGISRuntime.Symbology.VerticalAlignment.Top,
+            //        BackgroundColor = System.Drawing.Color.Transparent,
+            //        FontWeight = Esri.ArcGISRuntime.Symbology.FontWeight.Bold,
+            //        Size = 12
+            //    };
+            //    Uri symbolUri = new Uri("https://cdn-icons-png.flaticon.com/512/2838/2838709.png");
+            //    var pointName = new Graphic(StoresPoint, NamePoint);
+            //    PictureMarkerSymbol campsiteSymbol = new PictureMarkerSymbol(symbolUri)
+            //    {
+            //        Width = 20,
+            //        Height = 20
+            //    };
+            //    Graphic campsiteGraphic = new Graphic(StoresPoint, campsiteSymbol);
+            //    GraphicsOverlayObject.Graphics.Add(campsiteGraphic);
+            //    GraphicsOverlayObject.Graphics.Add(pointName);
+            //}
+            //var sheet = new StorebottomSheet();
+            //sheet.BindingContext = this;
+            //await sheet.ShowAsync();
         }
 
 
