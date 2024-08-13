@@ -84,6 +84,7 @@
 		<PackageReference Include="MonkeyCache.FileStore" Version="2.1.1" />
 		<PackageReference Include="Mopups" Version="1.3.1" />
 		<PackageReference Include="SkiaSharp.Extended.UI.Maui" Version="2.0.0-preview.86" />
+		<PackageReference Include="The49.Maui.BottomSheet" Version="8.0.3" />
 		<PackageReference Include="zoft.MauiExtensions.Controls.AutoCompleteEntry" Version="3.0.2" />
 	</ItemGroup>
 
@@ -93,6 +94,9 @@
 
 	<ItemGroup>
 	  <MauiXaml Update="ShellNavigator.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="StoreSheets\StorebottomSheet.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="ViewControls\Common\EntryEffect.xaml">

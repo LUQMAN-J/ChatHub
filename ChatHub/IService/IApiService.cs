@@ -10,6 +10,7 @@ public interface IApiService
 {
 
     Task<List<Suggestions>> getSuggestions(string filter);
+    Task<List<Stores>> getStores();
 
 
 }

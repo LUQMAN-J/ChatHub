@@ -3,6 +3,8 @@ using Esri.ArcGISRuntime.Maui;
 using Esri.ArcGISRuntime.Toolkit.Maui;
 using Mopups.Hosting;
 using zoft.MauiExtensions.Controls;
+using The49.Maui.BottomSheet;
+
 #if ANDROID
 using ChatHub.Platforms.Android;
 using Microsoft.Maui.Controls.Compatibility.Platform.Android;
@@ -26,6 +28,7 @@ public static class MauiProgram
             .UseMauiCommunityToolkit()
             .ConfigureMopups()
             .UseArcGISToolkit()
+            .UseBottomSheet()
             .UseZoftAutoCompleteEntry()
             .UseArcGISRuntime(config => config.UseApiKey("AAPK2c42ebedf7f84f13b962351af2d1f8c45FR6ihcxBhNGhASsva2b2expAWzq6Qi_u_3Vmjgfe_nsan8A2GjN0JcgFm_AGvcL"))
             .ConfigureLifecycleEvents(events =>
