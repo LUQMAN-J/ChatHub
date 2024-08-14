@@ -6,6 +6,7 @@
     ios:Page.PrefersHomeIndicatorAutoHidden="true"
     xmlns:basecontrols="clr-namespace:ChatHub.ViewControls.Common"
     xmlns:Animations="clr-namespace:ChatHub.ViewControls.JsonAnimation"
+    Shell.NavBarIsVisible="False"
     x:Class="ChatHub.Views.Base.PageBase"
     BackgroundColor="{StaticResource PageBackgroundColor}">
 

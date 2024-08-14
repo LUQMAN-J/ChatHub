@@ -8,35 +8,35 @@ namespace ChatHub.ViewModels
 {
     public partial class ChatPageViewModel : AppViewModelBase
     {
-        private readonly HubConnection _connection;
+       // private readonly HubConnection _connection;
         public ChatPageViewModel(IApiService appApiService) : base(appApiService)
         {
-            _connection = new HubConnectionBuilder().WithUrl("https://luqmanchathub.azurewebsites.net/chat").WithAutomaticReconnect().Build();
+           // _connection = new HubConnectionBuilder().WithUrl("https://luqmanchathub.azurewebsites.net/chat").WithAutomaticReconnect().Build();
         }
-        [ObservableProperty]
-        public string message;
-        [ObservableProperty]
-        public string myMessage;
+        //[ObservableProperty]
+        //public string message;
+        //[ObservableProperty]
+        //public string myMessage;
 
-        public override async Task OnNavigatedTo(object parameters)
-        {
-
-
-            _connection.On<string>("MessageReceived", (message) =>
-            {
-                Message += Environment.NewLine + message;
-            });
+        //public override async Task OnNavigatedTo(object parameters)
+        //{
 
 
-            await _connection.StartAsync();
+        //    _connection.On<string>("MessageReceived", (message) =>
+        //    {
+        //        Message += Environment.NewLine + message;
+        //    });
 
-        }
 
-        [RelayCommand]
-        public async Task OnButtonClick()
-        {
-            await _connection.InvokeCoreAsync("SendMessage", args: new[] { MyMessage });
-            MyMessage = String.Empty;
-        }
+        //    await _connection.StartAsync();
+
+        //}
+
+        //[RelayCommand]
+        //public async Task OnButtonClick()
+        //{
+        //    await _connection.InvokeCoreAsync("SendMessage", args: new[] { MyMessage });
+        //    MyMessage = String.Empty;
+        //}
     }
 }

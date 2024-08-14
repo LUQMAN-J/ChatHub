@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<baseviews:ViewBase xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ChatHub.Views.FindStore"
+             xmlns:baseviews="clr-namespace:ChatHub.Views.Base"
+             xmlns:viewmodels="clr-namespace:ChatHub.ViewModels"
+             x:TypeArguments="viewmodels:FindStoreViewModel"
+             x:DataType="viewmodels:FindStoreViewModel"
+             PageTitle="{Binding Title, Mode=OneWay}"
+             PageMode="None"
+             ContentDisplayMode="NoNavigationBar">
+    <baseviews:ViewBase.PageContent>
+            <VerticalStackLayout>
+            <Button Text="OpenStore" Command="{Binding getStorePopupCommand}"></Button>
+        </VerticalStackLayout>
+   </baseviews:ViewBase.PageContent>
+</baseviews:ViewBase>

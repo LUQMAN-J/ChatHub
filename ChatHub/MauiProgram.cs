@@ -1,10 +1,14 @@
 ﻿using Mopups.Hosting;
+using The49.Maui.BottomSheet;
+using UraniumUI;
+
+
+
 #if ANDROID
 using ChatHub.Platforms.Android;
 using Microsoft.Maui.Controls.Compatibility.Platform.Android;
 #elif IOS
 using ChatHub.Platforms.iOS;
-
 #endif
 
 
@@ -20,16 +24,18 @@ public static class MauiProgram
             .UseMauiApp<App>()
             .UseSkiaSharp()
             .UseMauiCommunityToolkit()
-            .ConfigureMopups()
+            .UseBottomSheet()
+            .UseUraniumUI()
+            .UseUraniumUIMaterial()
             .ConfigureLifecycleEvents(events =>
              {
                  RegisterAnriodLifeCycleServices(events);
              })
              .ConfigureMauiHandlers(handlers =>
                 {
-                    #if ANDROID || IOS
+#if ANDROID || IOS
                       handlers.AddHandler<Shell, ShellHandler>();
-                    #endif
+#endif
                 })
             .ConfigureEssentials(essentials =>
             {
@@ -81,6 +87,7 @@ public static class MauiProgram
         services.AddSingleton<HomePageViewModel>();
         services.AddSingleton<ChatPageViewModel>();
         services.AddSingleton<RegisterPageViewModel>();
+        services.AddSingleton<FindStoreViewModel>();
     }
 
 

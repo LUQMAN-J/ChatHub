@@ -12,11 +12,11 @@
              ContentDisplayMode="NoNavigationBar" >
     <baseviews:ViewBase.PageContent>
         <VerticalStackLayout  Padding="0,0" Spacing="25">
-            <Label Text="{Binding Message}" FontSize="18" HorizontalOptions="Center" />
+            <!--<Label Text="{Binding Message}" FontSize="18" HorizontalOptions="Center" />
 
             <Entry Text="{Binding MyMessage}" Placeholder="Type your message" FontSize="18" HorizontalOptions="Center" />
 
-            <Button Text="Send" Style="{x:StaticResource ConerButtonStyle}" Command="{Binding ButtonClickCommand}" HorizontalOptions="Center" />
+            <Button Text="Send" Style="{x:StaticResource ConerButtonStyle}" Command="{Binding ButtonClickCommand}" HorizontalOptions="Center" />-->
         </VerticalStackLayout>
     </baseviews:ViewBase.PageContent>
 </baseviews:ViewBase>

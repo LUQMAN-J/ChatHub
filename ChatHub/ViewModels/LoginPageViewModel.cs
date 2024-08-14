@@ -32,6 +32,7 @@ public partial class LoginPageViewModel : AppViewModelBase
     public async Task OnLoginExccution()
     {
         App.Current.MainPage = new ShellNavigator();
+       //await Shell.Current.GoToAsync("///HomeNav");
     }
     [RelayCommand]
     public async Task OnSignUpExecution()
@@ -40,7 +41,7 @@ public partial class LoginPageViewModel : AppViewModelBase
         {
             SetDataLoadingIndicators();
             await Task.Delay(5000);
-           // await this.NavigationService.PushAsync(new RegisterPage());
+            await this.NavigationService.PushAsync(new RegisterPage());
         }
         catch (InternetConnectionException)
         {

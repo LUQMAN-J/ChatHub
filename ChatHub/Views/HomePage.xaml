@@ -7,12 +7,52 @@
              xmlns:viewmodels="clr-namespace:ChatHub.ViewModels"
              x:TypeArguments="viewmodels:HomePageViewModel"
              x:DataType="viewmodels:HomePageViewModel"
-            PageTitle="{Binding Title, Mode=OneWay}"
-            PageMode="None"
-            ContentDisplayMode="NoNavigationBar" >
-    <baseviews:ViewBase.PageContent>
-        <VerticalStackLayout  Padding="50,50" Spacing="25">
-            <Label Text="Wellcome to Home Page" FontFamily="RegularFont" FontSize="18" HorizontalOptions="Center" />
-        </VerticalStackLayout>
-    </baseviews:ViewBase.PageContent>
+             PageTitle="{Binding Title, Mode=OneWay}"
+             PageMode="None"
+             ContentDisplayMode="NoNavigationBar" >
+    <!--<baseviews:ViewBase.PageContent>-->
+        <VerticalStackLayout  Padding="20,20" Spacing="25">
+        <Grid Padding="20" HorizontalOptions="EndAndExpand" VerticalOptions="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="40"/>
+                <!-- Fixed width for the ImageButton -->
+            </Grid.ColumnDefinitions>
+
+            <Entry x:Name="AnimatedEntry" WidthRequest="200" 
+                   BackgroundColor="Red" Background="Orange"
+               HorizontalOptions="Start" VerticalOptions="Center"
+               Placeholder="Type here..." Grid.Column="0"/>
+            <ImageButton x:Name="ToggleButton" Source="close.png" 
+                     Clicked="OnToggleButtonClicked" 
+                     HorizontalOptions="Center" VerticalOptions="Center"
+                     WidthRequest="40" HeightRequest="40" Grid.Column="1"/>
+        </Grid>
+        <Button Text="CheckBottom" Command="{Binding HomePageButtonCommand}"></Button>
+        <!--<Grid Padding="20" HorizontalOptions="Center" VerticalOptions="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="40"/>
+                --><!-- Fixed width for the ImageButton --><!--
+            </Grid.ColumnDefinitions>
+
+            <Entry x:Name="AnimatedEntry" WidthRequest="0" 
+               HorizontalOptions="StartAndExpand" VerticalOptions="Center"
+               Placeholder="Type here..." Grid.Column="0"/>
+            <ImageButton x:Name="ToggleButton" Source="close.png" 
+                     Clicked="OnToggleButtonClicked" 
+                     HorizontalOptions="End" VerticalOptions="Center"
+                     WidthRequest="40" HeightRequest="40" Grid.Column="1"/>
+        </Grid>-->
+        <!--<StackLayout Padding="20" Orientation="Horizontal" VerticalOptions="Center">
+            <Entry x:Name="AnimatedEntry" WidthRequest="0" 
+               HorizontalOptions="Start" VerticalOptions="Center"
+               Placeholder="Type here..."/>
+            <ImageButton x:Name="ToggleButton" Source="close.png" 
+                     Clicked="OnToggleButtonClicked" 
+                     HorizontalOptions="End" VerticalOptions="Center"
+                     WidthRequest="40" HeightRequest="40"/>
+        </StackLayout>-->
+    </VerticalStackLayout>
+    <!--</baseviews:ViewBase.PageContent>-->
 </baseviews:ViewBase>
