@@ -1,5 +1,7 @@
 ﻿
 using ChatHub.Models;
+using Esri.ArcGISRuntime.Tasks.Geocoding;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace ChatHub.Service;
 
@@ -10,30 +12,31 @@ public class ApiService : RestServiceBase, IApiService
         //SetBaseURL("http://192.168.18.14:54538/api/");
     }
 
-    public async Task<List<Store>> getStores()
+    private LocatorTask _geocoder;
+
+    public async Task<List<Suggestions>> getSuggestions(string filter)
     {
-        await Task.Delay(100);
-        return new List<Store>
-        {
-            new Store{StoreNumber="101",StoreName="Store A South",StoreLocation="A South Address",StorePhoneNumber="2222-222-22",StoreTimeTable="12:49 PM- 06:55 AM",StoreDistance="7 KM", StoreStatus="Close"},
-            new Store{StoreNumber="102",StoreName="Store B South",StoreLocation="BSouth Address",StorePhoneNumber="2222-222-23",StoreTimeTable="12:50 PM- 06:55 AM",StoreDistance="6 KM", StoreStatus="Close"},
-            new Store{StoreNumber="103",StoreName="Store C South",StoreLocation="C South Address",StorePhoneNumber="2222-222-24",StoreTimeTable="12:51 PM- 06:55 AM",StoreDistance="3 KM", StoreStatus="Close"},
-            new Store{StoreNumber="104",StoreName="Store D South",StoreLocation="D South Address",StorePhoneNumber="2222-222-25",StoreTimeTable="12:52 PM- 06:55 AM",StoreDistance="4 KM", StoreStatus="Open"},
-            new Store{StoreNumber="105",StoreName="Store E South",StoreLocation="E South Address",StorePhoneNumber="2222-222-26",StoreTimeTable="12:53 PM- 06:55 AM",StoreDistance="7 KM", StoreStatus="Close"},
-            new Store{StoreNumber="105",StoreName="Store F South",StoreLocation="F South Address",StorePhoneNumber="2222-222-27",StoreTimeTable="12:54 PM- 06:55 AM",StoreDistance="5 KM", StoreStatus="Close"},
-            new Store{StoreNumber="106",StoreName="Store G South",StoreLocation="G South Address",StorePhoneNumber="2222-222-28",StoreTimeTable="12:55 PM- 06:55 AM",StoreDistance="9 KM", StoreStatus="Close"},
-            new Store{StoreNumber="107",StoreName="Store H South",StoreLocation="H South Address",StorePhoneNumber="2222-222-29",StoreTimeTable="12:56 PM- 06:55 AM",StoreDistance="5 KM", StoreStatus="Open"},
-            new Store{StoreNumber="108",StoreName="Store I South",StoreLocation="I South Address",StorePhoneNumber="2222-222-30",StoreTimeTable="12:57 PM- 06:55 AM",StoreDistance="10 KM", StoreStatus="Close"},
-            new Store{StoreNumber="109",StoreName="Store J South",StoreLocation="J South Address",StorePhoneNumber="2222-222-31",StoreTimeTable="12:58 PM- 06:55 AM",StoreDistance="6 KM", StoreStatus="Close"},
-            new Store{StoreNumber="1010",StoreName="Store K South",StoreLocation="K South Address",StorePhoneNumber="2222-222-32",StoreTimeTable="12:59 PM- 06:55 AM",StoreDistance="4 KM", StoreStatus="Close"},
-            new Store{StoreNumber="1011",StoreName="Store J South",StoreLocation="L South Address",StorePhoneNumber="2222-222-33",StoreTimeTable="12:60 PM- 06:55 AM",StoreDistance="17 KM", StoreStatus="Close"},
-            new Store{StoreNumber="1012",StoreName="Store M South",StoreLocation="M South Address",StorePhoneNumber="2222-222-34",StoreTimeTable="12:01 PM- 06:55 AM",StoreDistance="4 KM", StoreStatus="Close"},
-            new Store{StoreNumber="1013",StoreName="Store N South",StoreLocation="N South Address",StorePhoneNumber="2222-222-35",StoreTimeTable="12:02 PM- 06:55 AM",StoreDistance="7 KM", StoreStatus="Close"},
-            new Store{StoreNumber="1014",StoreName="Store AO South",StoreLocation="O South Address",StorePhoneNumber="2222-222-36",StoreTimeTable="12:03 PM- 06:55 AM",StoreDistance="6 KM", StoreStatus="Open"}
-        };
+        var _serviceUri = new Uri("https://geocode-api.arcgis.com/arcgis/rest/services/World/GeocodeServer");
+        var inputSeparator = ',';
+        _geocoder = await LocatorTask.CreateAsync(_serviceUri).ConfigureAwait(false);
+        IReadOnlyList<SuggestResult> suggestions = await _geocoder.SuggestAsync(filter).ConfigureAwait(false);
+        var suggestion = suggestions.Where(s => s.Label.Split(inputSeparator).ToList().Count == 5).Select(s => new Suggestions { Name = s.Label }).ToList();
+        return suggestion;
     }
 
 
 
+    public async Task<List<Stores>> getStores()
+    {
+        await Task.Delay(500);
+        return  new List<Stores>()
+            {
+                new Stores() { Id = Guid.NewGuid(),Name="Karachi",Description="Based on Karachi",StoreNumber="PK=101",Status=false,Latitude=24.8607,Longitude=67.0011, Address="Karachi,Pakistan",PhoneNumber="000-123456" },
+                new Stores() { Id = Guid.NewGuid(),Name="Islamabad",Description="Based on Islamabad",StoreNumber="PK=102",Status=false,Latitude=33.6995,Longitude=73.0363,Address="Islamabad,Pakistan",PhoneNumber="000-123456" },
+                new Stores() { Id = Guid.NewGuid(),Name="Rawalpindi ",Description="Based on Rawalpindi",StoreNumber="PK=103",Status=false,Latitude= 33.5651,Longitude=73.0169,Address="Rawalpindi,Pakistan",PhoneNumber="000-123456" },
+                new Stores() { Id = Guid.NewGuid(),Name="Lahore",Description="Based on Lahore",StoreNumber="PK=104",Status=true,Latitude= 31.520,Longitude= 74.3587 ,Address="Lahore,Pakistan",PhoneNumber="000-123456"},
+                new Stores() { Id = Guid.NewGuid(),Name="Multan",Description="Based on Multan",StoreNumber="PK=105",Status=true,Latitude= 30.1864,Longitude=71.4886 ,Address="Multan,Pakistan",PhoneNumber="000-123456"}
+            }.ToList();
+    }
 }
 

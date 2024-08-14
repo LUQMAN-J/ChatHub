@@ -10,14 +10,14 @@
              Shell.TabBarBackgroundColor="#FFF5EE"
              Shell.TabBarForegroundColor="{x:StaticResource AppRedColor}"
              Title="ShellNavigator">
-    <ShellContent     Title="FindStore"
-                      Route="_FindStore"
-                      ContentTemplate="{DataTemplate local:FindStore}" />
+
+    <ShellContent Title="BaseMap" Route="BaseMapRoute"  ContentTemplate="{DataTemplate local:BaseMapPage}" />
+
     <TabBar>
-        <Tab Title="Home" Icon="homeicon.png" Route="_HomeNav">
+        <Tab Title="Home" Icon="homeicon.png">
             <ShellContent ContentTemplate="{DataTemplate local:HomePage}" />
         </Tab>
-        <Tab Title="Chat" Icon="chaticon.png" Route="_ChatNav">
+        <Tab Title="Chat" Icon="chaticon.png">
             <ShellContent ContentTemplate="{DataTemplate local:ChatPage}" />
         </Tab>
     </TabBar>

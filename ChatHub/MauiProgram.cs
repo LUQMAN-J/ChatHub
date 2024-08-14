@@ -1,14 +1,16 @@
-﻿using Mopups.Hosting;
+﻿using Esri.ArcGISRuntime;
+using Esri.ArcGISRuntime.Maui;
+using Esri.ArcGISRuntime.Toolkit.Maui;
+using Mopups.Hosting;
+using zoft.MauiExtensions.Controls;
 using The49.Maui.BottomSheet;
-using UraniumUI;
-
-
 
 #if ANDROID
 using ChatHub.Platforms.Android;
 using Microsoft.Maui.Controls.Compatibility.Platform.Android;
 #elif IOS
 using ChatHub.Platforms.iOS;
+
 #endif
 
 
@@ -24,18 +26,20 @@ public static class MauiProgram
             .UseMauiApp<App>()
             .UseSkiaSharp()
             .UseMauiCommunityToolkit()
+            .ConfigureMopups()
+            .UseArcGISToolkit()
             .UseBottomSheet()
-            .UseUraniumUI()
-            .UseUraniumUIMaterial()
+            .UseZoftAutoCompleteEntry()
+            .UseArcGISRuntime(config => config.UseApiKey("AAPK2c42ebedf7f84f13b962351af2d1f8c45FR6ihcxBhNGhASsva2b2expAWzq6Qi_u_3Vmjgfe_nsan8A2GjN0JcgFm_AGvcL"))
             .ConfigureLifecycleEvents(events =>
              {
                  RegisterAnriodLifeCycleServices(events);
              })
              .ConfigureMauiHandlers(handlers =>
                 {
-#if ANDROID || IOS
+                    #if ANDROID || IOS
                       handlers.AddHandler<Shell, ShellHandler>();
-#endif
+                    #endif
                 })
             .ConfigureEssentials(essentials =>
             {
@@ -87,7 +91,7 @@ public static class MauiProgram
         services.AddSingleton<HomePageViewModel>();
         services.AddSingleton<ChatPageViewModel>();
         services.AddSingleton<RegisterPageViewModel>();
-        services.AddSingleton<FindStoreViewModel>();
+        services.AddSingleton<BaseMapViewModel>();
     }
 
 

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<the49:BottomSheet xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ChatHub.StoreSheets.StorebottomSheet"
+             xmlns:the49="https://schemas.the49.com/dotnet/2023/maui"
+             HasHandle="True" HasBackdrop="True">
+
+    <the49:BottomSheet.Detents>
+        <the49:RatioDetent Ratio="0.60" />
+    </the49:BottomSheet.Detents>
+    <VerticalStackLayout>
+        <ScrollView VerticalScrollBarVisibility="Always">
+            <CollectionView ItemsSource="{Binding StoreList}" ItemsUpdatingScrollMode="KeepLastItemInView">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame  Margin="10,10,10,0" BackgroundColor="LightPink">
+                            <Grid ColumnDefinitions="5*,5*" RowDefinitions="*">
+                                <VerticalStackLayout Grid.Row="0" Grid.Column="0" Padding="10" Spacing="5">
+                                    <Label   Text="{Binding Name}"  FontAttributes="Bold" VerticalOptions="Start" HorizontalOptions="Start" />
+                                    <Label   Text="{Binding Address}"  FontAttributes="Bold" VerticalOptions="Start" HorizontalOptions="Start" />
+                                    <Label   Text="{Binding StoreNumber}"  FontAttributes="Bold" VerticalOptions="Start" HorizontalOptions="Start" />
+                                    <Label   Text="{Binding PhoneNumber}"  FontAttributes="Bold" VerticalOptions="Start" HorizontalOptions="Start" />
+                                </VerticalStackLayout>
+                                <VerticalStackLayout Grid.Row="0" Grid.Column="1"  Padding="10" VerticalOptions="Center">
+                                    <Border HeightRequest="80" WidthRequest="150" HorizontalOptions="Center" VerticalOptions="Center">
+                                        <Label   Text="{Binding StatusText}"  FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="Center" />
+                                    </Border>
+                                </VerticalStackLayout>
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </ScrollView>
+    </VerticalStackLayout>
+</the49:BottomSheet>

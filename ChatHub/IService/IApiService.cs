@@ -8,7 +8,9 @@ namespace ChatHub.IServices;
 
 public interface IApiService
 {
-    Task<List<Store>> getStores();
+
+    Task<List<Suggestions>> getSuggestions(string filter);
+    Task<List<Stores>> getStores();
 
 
 }

@@ -73,17 +73,19 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.Maui.Controls" Version="8.0.70" />
-		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.70" />
+		<PackageReference Include="Esri.ArcGISRuntime.Maui" Version="200.5.0" />
+		<PackageReference Include="Esri.ArcGISRuntime.Toolkit.Maui" Version="200.5.0" />
+		<PackageReference Include="Microsoft.Maui.Controls" Version="8.0.80" />
+		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.80" />
+		<PackageReference Include="CommunityToolkit.Maui" Version="8.0.1" />
+		<PackageReference Include="CommunityToolkit.Maui.Core" Version="8.0.1" />
 		<PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="8.0.3" />
-		<PackageReference Include="CommunityToolkit.Maui" Version="9.0.2" />
-		<PackageReference Include="CommunityToolkit.Maui.Core" Version="9.0.2" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
 		<PackageReference Include="MonkeyCache.FileStore" Version="2.1.1" />
 		<PackageReference Include="Mopups" Version="1.3.1" />
-		<PackageReference Include="SkiaSharp.Extended.UI.Maui" Version="2.0.0" />
+		<PackageReference Include="SkiaSharp.Extended.UI.Maui" Version="2.0.0-preview.86" />
 		<PackageReference Include="The49.Maui.BottomSheet" Version="8.0.3" />
-		<PackageReference Include="UraniumUI.Material" Version="2.8.1" />
+		<PackageReference Include="zoft.MauiExtensions.Controls.AutoCompleteEntry" Version="3.0.2" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -92,6 +94,9 @@
 
 	<ItemGroup>
 	  <MauiXaml Update="ShellNavigator.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="StoreSheets\StorebottomSheet.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="ViewControls\Common\EntryEffect.xaml">
@@ -103,9 +108,6 @@
 	  <MauiXaml Update="ViewControls\Common\LoadingIndicator.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="ViewControls\Common\OnBottomSheet.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
 	  <MauiXaml Update="ViewControls\JsonAnimation\BackCrossSignView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -115,10 +117,10 @@
 	  <MauiXaml Update="ViewControls\JsonAnimation\LeftArrowView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\ChatPage.xaml">
+	  <MauiXaml Update="Views\BaseMapPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\FindStore.xaml">
+	  <MauiXaml Update="Views\ChatPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\HomePage.xaml">
