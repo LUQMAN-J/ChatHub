@@ -28,7 +28,7 @@
                      HorizontalOptions="Center" VerticalOptions="Center"
                      WidthRequest="40" HeightRequest="40" Grid.Column="1"/>
         </Grid>
-        <Button Text="CheckBottom" Command="{Binding HomePageButtonCommand}"></Button>
+        <!--<Button Text="CheckBottom" Command="{Binding HomePageButtonCommand}"></Button>-->
         <!--<Grid Padding="20" HorizontalOptions="Center" VerticalOptions="Center">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>

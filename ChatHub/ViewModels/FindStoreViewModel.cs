@@ -12,7 +12,7 @@ namespace ChatHub.ViewModels
     public partial class FindStoreViewModel : AppViewModelBase
     {
         [ObservableProperty]
-        public IList<Store> stores;
+        public IList<Stores> stores;
         [ObservableProperty]
         public bool disableBackGround;
 

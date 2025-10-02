@@ -57,6 +57,15 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <AndroidResource Remove="BackupsZip\**" />
+	  <Compile Remove="BackupsZip\**" />
+	  <EmbeddedResource Remove="BackupsZip\**" />
+	  <MauiCss Remove="BackupsZip\**" />
+	  <MauiXaml Remove="BackupsZip\**" />
+	  <None Remove="BackupsZip\**" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <None Remove="Resources\Fonts\GlacialIndifference-Bold.otf" />
 	  <None Remove="Resources\Images\backimge.png" />
 	  <None Remove="Resources\Images\chaticon.png" />
